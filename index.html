@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CODE : 죽림고수</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <main id="game-wrapper">
+
+        <!-- 게임 화면 -->
+        <canvas id="gameCanvas"></canvas>
+
+
+        <!-- HUD -->
+        <div id="hud">
+
+            <div class="hud-item">
+
+                <span class="hud-title">
+                    LIFE
+                </span>
+
+                <span id="life">
+                    ♥
+                </span>
+
+            </div>
+
+
+            <div class="hud-item">
+
+                <span class="hud-title">
+                    TIME
+                </span>
+
+                <span id="time">
+                    0.00
+                </span>
+
+            </div>
+
+
+            <div class="hud-item">
+
+                <span class="hud-title">
+                    BEST
+                </span>
+
+                <span id="best">
+                    0.00
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- 시작 화면 -->
+        <section
+            id="startScreen"
+            class="screen"
+        >
+
+            <div class="title">
+
+                <div class="small-title">
+                    SURVIVAL ARCHERY
+                </div>
+
+                <h1>
+                    CODE
+                </h1>
+
+                <h2>
+                    죽림고수
+                </h2>
+
+                <p>
+                    화살을 피해 최대한 오래 살아남아라.
+                </p>
+
+            </div>
+
+
+            <div class="controls">
+
+                <div class="arrow-keys">
+
+                    <div>↑</div>
+
+                    <div>
+                        <span>←</span>
+                        <span>↓</span>
+                        <span>→</span>
+                    </div>
+
+                </div>
+
+                <p>
+                    방향키로 이동
+                </p>
+
+            </div>
+
+
+            <button
+                id="startButton"
+            >
+                게임 시작
+            </button>
+
+        </section>
+
+
+        <!-- 게임 오버 -->
+        <section
+            id="gameOverScreen"
+            class="screen hidden"
+        >
+
+            <div class="game-over">
+
+                <div class="small-title">
+                    SURVIVAL ENDED
+                </div>
+
+                <h2>
+                    GAME OVER
+                </h2>
+
+
+                <div class="result">
+
+                    <div>
+
+                        <span>
+                            TIME
+                        </span>
+
+                        <strong id="finalTime">
+                            0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BEST
+                        </span>
+
+                        <strong id="finalBest">
+                            0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="restartButton"
+                >
+                    다시 시작
+                </button>
+
+
+                <p>
+                    R 키로 다시 시작
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- 게임 실행 -->
+    <script
+        type="module"
+        src="./js/main.js"
+    ></script>
+
+</body>
+
+</html>
