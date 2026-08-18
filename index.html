@@ -7,14 +7,19 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#071008"
     >
 
     <title>CODE : 죽림고수</title>
 
     <link
         rel="stylesheet"
-        href="css/style.css"
+        href="./css/style.css"
     >
 
 </head>
@@ -27,23 +32,21 @@
          게임 전체
     ====================================================== -->
 
-    <main id="game-wrapper">
+    <div id="game-wrapper">
 
 
         <!-- =================================================
-             게임 화면
+             게임 Canvas
         ================================================== -->
 
-        <canvas
-            id="gameCanvas"
-        ></canvas>
+        <canvas id="gameCanvas"></canvas>
 
 
         <!-- =================================================
              HUD
         ================================================== -->
 
-        <section
+        <div
             id="hud"
             class="hud hidden"
         >
@@ -51,9 +54,7 @@
 
             <!-- 체력 -->
 
-            <div
-                class="hud-box health-box"
-            >
+            <div class="hud-box">
 
                 <span class="hud-label">
                     LIFE
@@ -91,9 +92,7 @@
 
             <!-- 최고 기록 -->
 
-            <div
-                class="hud-box best-box"
-            >
+            <div class="hud-box">
 
                 <span class="hud-label">
                     BEST
@@ -109,7 +108,7 @@
             </div>
 
 
-        </section>
+        </div>
 
 
         <!-- =================================================
@@ -121,11 +120,12 @@
             class="screen"
         >
 
+
             <div class="title-area">
 
-                <p class="subtitle">
-                    BAMBOO SURVIVAL
-                </p>
+                <div class="subtitle">
+                    SURVIVAL ARCHERY
+                </div>
 
                 <h1>
                     CODE
@@ -136,24 +136,42 @@
                 </h2>
 
                 <p class="description">
-                    화살을 피하고<br>
-                    최대한 오래 살아남아라.
+
+                    대나무 숲을 가르는 화살을 피해<br>
+
+                    단 하나의 목숨으로 최대한 오래 살아남아라.
+
                 </p>
 
             </div>
 
 
+            <!-- =================================================
+                 조작 설명
+            ================================================== -->
+
             <div class="control-guide">
+
 
                 <div class="wasd">
 
-                    <span>W</span>
+                    <span>
+                        W
+                    </span>
 
                     <div>
 
-                        <span>A</span>
-                        <span>S</span>
-                        <span>D</span>
+                        <span>
+                            A
+                        </span>
+
+                        <span>
+                            S
+                        </span>
+
+                        <span>
+                            D
+                        </span>
 
                     </div>
 
@@ -164,8 +182,13 @@
                     WASD로 이동
                 </p>
 
+
             </div>
 
+
+            <!-- =================================================
+                 시작 버튼
+            ================================================== -->
 
             <button
                 id="start-button"
@@ -179,7 +202,39 @@
 
 
         <!-- =================================================
-             게임 오버
+             하단 조작 안내
+        ================================================== -->
+
+        <div
+            id="bottom-guide"
+            class="bottom-guide hidden"
+        >
+
+            <span>
+                W
+            </span>
+
+            <span>
+                A
+            </span>
+
+            <span>
+                S
+            </span>
+
+            <span>
+                D
+            </span>
+
+            <b>
+                이동
+            </b>
+
+        </div>
+
+
+        <!-- =================================================
+             게임오버 화면
         ================================================== -->
 
         <section
@@ -187,18 +242,19 @@
             class="screen hidden"
         >
 
+
             <div class="game-over-card">
 
-                <p class="subtitle">
-                    SURVIVAL ENDED
-                </p>
 
                 <h2>
                     GAME OVER
                 </h2>
 
 
+                <!-- 결과 -->
+
                 <div class="result">
+
 
                     <div>
 
@@ -229,8 +285,11 @@
 
                     </div>
 
+
                 </div>
 
+
+                <!-- 재시작 -->
 
                 <button
                     id="restart-button"
@@ -241,47 +300,17 @@
 
 
                 <p class="restart-guide">
-                    또는 R 키를 눌러 다시 시작
+                    R 키를 눌러도 다시 시작할 수 있습니다.
                 </p>
 
+
             </div>
+
 
         </section>
 
 
-        <!-- =================================================
-             시작 전 조작 안내
-        ================================================== -->
-
-        <div
-            id="bottom-guide"
-            class="bottom-guide"
-        >
-
-            <span>
-                W
-            </span>
-
-            <span>
-                A
-            </span>
-
-            <span>
-                S
-            </span>
-
-            <span>
-                D
-            </span>
-
-            <b>
-                MOVE
-            </b>
-
-        </div>
-
-
-    </main>
+    </div>
 
 
     <!-- =====================================================
@@ -290,7 +319,7 @@
 
     <script
         type="module"
-        src="js/main.js"
+        src="./js/main.js"
     ></script>
 
 
