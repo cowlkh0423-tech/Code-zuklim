@@ -18,7 +18,7 @@
 
 import { Player } from "./player.js";
 import { Arrow } from "./arrow.js";
-
+import { PatternManager } from "./patterns.js";
 
 // ============================================================
 // Game
