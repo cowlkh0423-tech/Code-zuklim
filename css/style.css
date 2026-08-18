@@ -1,0 +1,716 @@
+/* =========================================================
+   기본 설정
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    background: #071008;
+    color: #f5e7b0;
+
+    font-family:
+        "Noto Sans KR",
+        "Apple SD Gothic Neo",
+        sans-serif;
+}
+
+
+/* =========================================================
+   게임 전체
+========================================================= */
+
+#game-wrapper {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130, 150, 70, 0.15),
+            transparent 55%
+        ),
+        #071008;
+}
+
+
+/* =========================================================
+   Canvas
+========================================================= */
+
+#gameCanvas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    image-rendering: auto;
+}
+
+
+/* =========================================================
+   공통 숨김
+========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.hud {
+    position: absolute;
+
+    top: 24px;
+    left: 24px;
+    right: 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   HUD 박스
+========================================================= */
+
+.hud-box {
+    min-width: 130px;
+
+    padding: 12px 18px;
+
+    border: 1px solid
+        rgba(210, 177, 72, 0.45);
+
+    background:
+        rgba(5, 12, 7, 0.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+
+/* 중앙 시간 */
+
+.timer-box {
+    position: absolute;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    min-width: 190px;
+}
+
+
+/* =========================================================
+   HUD 텍스트
+========================================================= */
+
+.hud-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(235, 218, 157, 0.65);
+}
+
+
+.timer {
+    display: block;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #fff3bd;
+}
+
+
+.health {
+    display: block;
+
+    font-size: 26px;
+
+    line-height: 1;
+
+    color: #d84a3d;
+
+    text-shadow:
+        0 0 12px
+        rgba(216, 74, 61, 0.5);
+}
+
+
+.best-time {
+    display: block;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 20px;
+
+    color: #e2c766;
+}
+
+
+/* =========================================================
+   시작 / 종료 화면
+========================================================= */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(15, 35, 18, 0.35),
+            rgba(3, 8, 4, 0.78)
+        );
+
+    backdrop-filter:
+        blur(2px);
+}
+
+
+/* =========================================================
+   제목
+========================================================= */
+
+.title-area {
+    margin-bottom: 35px;
+}
+
+
+.subtitle {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 6px;
+
+    color:
+        rgba(218, 190, 86, 0.75);
+}
+
+
+.title-area h1 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(80px, 15vw, 180px);
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    color: #d6ad42;
+
+    text-shadow:
+        0 2px 0 #735719,
+        0 5px 25px
+        rgba(206, 168, 55, 0.25);
+
+    opacity: 0.92;
+}
+
+
+.title-area h2 {
+    margin-top: 25px;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    letter-spacing: 12px;
+
+    color: #eee1ac;
+}
+
+
+.description {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(235, 228, 195, 0.72);
+}
+
+
+/* =========================================================
+   WASD 안내
+========================================================= */
+
+.control-guide {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+
+.control-guide p {
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(238, 227, 181, 0.7);
+}
+
+
+.wasd {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.wasd > span,
+.wasd div span {
+    width: 38px;
+    height: 38px;
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(224, 194, 101, 0.55);
+
+    background:
+        rgba(12, 25, 14, 0.8);
+
+    color: #e8d48d;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(210, 177, 72, 0.05);
+}
+
+
+.wasd div {
+    display: flex;
+
+    gap: 5px;
+}
+
+
+/* =========================================================
+   게임 버튼
+========================================================= */
+
+.game-button {
+    position: relative;
+
+    min-width: 190px;
+
+    padding: 14px 35px;
+
+    border:
+        1px solid
+        rgba(220, 184, 65, 0.75);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(65, 67, 31, 0.9),
+            rgba(25, 39, 21, 0.95)
+        );
+
+    color: #f2dda0;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+.game-button::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border:
+        1px solid
+        rgba(214, 176, 57, 0.18);
+
+    pointer-events: none;
+}
+
+
+.game-button:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(86, 83, 37, 0.95),
+            rgba(33, 51, 27, 0.98)
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.5);
+}
+
+
+.game-button:active {
+    transform:
+        translateY(1px);
+}
+
+
+/* =========================================================
+   하단 WASD 안내
+========================================================= */
+
+.bottom-guide {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 12;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid
+        rgba(207, 178, 76, 0.3);
+
+    background:
+        rgba(5, 12, 7, 0.65);
+
+    backdrop-filter:
+        blur(6px);
+
+    color:
+        rgba(231, 217, 165, 0.7);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.bottom-guide span {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(211, 183, 87, 0.4);
+
+    color: #d9c476;
+
+    font-size: 10px;
+}
+
+
+.bottom-guide b {
+    margin-left: 7px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    color:
+        rgba(228, 214, 166, 0.55);
+}
+
+
+/* =========================================================
+   게임오버
+========================================================= */
+
+.game-over-card {
+    width:
+        min(440px, 90vw);
+
+    padding: 45px 35px;
+
+    border:
+        1px solid
+        rgba(214, 177, 65, 0.45);
+
+    background:
+        rgba(7, 15, 9, 0.88);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.6);
+}
+
+
+.game-over-card h2 {
+    margin-bottom: 35px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 46px;
+
+    letter-spacing: 4px;
+
+    color: #e0c46c;
+}
+
+
+/* =========================================================
+   결과
+========================================================= */
+
+.result {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 1px;
+
+    margin-bottom: 35px;
+
+    background:
+        rgba(212, 177, 65, 0.15);
+}
+
+
+.result div {
+    padding: 18px 10px;
+
+    background:
+        rgba(12, 23, 14, 0.9);
+}
+
+
+.result span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(230, 217, 170, 0.55);
+}
+
+
+.result strong {
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 23px;
+
+    color: #eee0a7;
+}
+
+
+.restart-guide {
+    margin-top: 16px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(231, 222, 190, 0.4);
+}
+
+
+/* =========================================================
+   모바일
+========================================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    .hud {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+    }
+
+
+    .hud-box {
+        min-width: 85px;
+
+        padding:
+            9px 10px;
+    }
+
+
+    .timer-box {
+        min-width: 120px;
+    }
+
+
+    .timer {
+        font-size: 20px;
+    }
+
+
+    .health {
+        font-size: 22px;
+    }
+
+
+    .best-time {
+        font-size: 16px;
+    }
+
+
+    .title-area h1 {
+        font-size: 90px;
+
+        letter-spacing: -5px;
+    }
+
+
+    .title-area h2 {
+        font-size: 21px;
+
+        letter-spacing: 7px;
+    }
+
+
+    .description {
+        font-size: 12px;
+    }
+
+
+    .game-button {
+        min-width: 165px;
+
+        padding: 13px 25px;
+
+        font-size: 12px;
+    }
+
+
+    .bottom-guide {
+        bottom: 12px;
+    }
+
+}
